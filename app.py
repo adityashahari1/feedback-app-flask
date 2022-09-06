@@ -37,7 +37,7 @@ def index():
   return render_template('index.html')
 
 @app.route("/submit", methods = ['POST'])
-def success():
+def submit():
   if request.method == 'POST':
     name = request.form.get('name')
     branch = request.form.get('branch')
@@ -57,7 +57,7 @@ def success():
       send_mail(name, branch, rating, comments)
       return render_template('success.html')
 
-    return render_template('index.html', message='You have already submitter feedback')
+    return render_template('index.html', message='You have already submitted feedback')
 
 
 if __name__ == '__main__':
