@@ -4,14 +4,14 @@ from send_mail import send_mail
 
 app = Flask(__name__)
 
-ENV = 'prod'
+ENV = 'dev'
 
 if ENV == 'dev':
   app.debug = True
-  app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost/dominos'
+  app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/dominos'
 else:
   app.debug = False
-  app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://sccqgjihhzyegt:5a9f228ad5598fb4b830d29c773d2c1f28ce65fec53eafb87cad2fa25d06a1f9@ec2-34-199-68-114.compute-1.amazonaws.com:5432/d2mmd1m5h424pi'
+  app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://<heroku_url>'
 
 
 
